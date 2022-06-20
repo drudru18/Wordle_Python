@@ -4,6 +4,7 @@ from colorama import Fore, Back, Style
 import codecs
 import random
 import time
+import choix
 
 class Wordle:
     
@@ -27,12 +28,15 @@ class Wordle:
         return self.l
     
     def choose_length(self):
-        self.number = str(input("\n"*100+"Choisissez la " + Fore.YELLOW+ "longueur" +Fore.WHITE+ " du mot que vous voulez trouver" + Fore.LIGHTRED_EX+ " (minimum taille 2 et maximum taille 15)"+Fore.WHITE+", tapez "+Fore.YELLOW+ 'help'+Fore.WHITE +" pour savoir comment jouer ou tapez "+Fore.YELLOW+ 'fermer' +Fore.WHITE+" pour fermer le programme: \n --> "))
+        self.number = str(input("\n"*100+"Choisissez la " + Fore.YELLOW+ "longueur" +Fore.WHITE+ " du mot que vous voulez trouver" + Fore.LIGHTRED_EX+ " (minimum taille 2 et maximum taille 15)"+Fore.WHITE+", tapez "+Fore.YELLOW+ 'help'+Fore.WHITE +" pour savoir comment jouer, tapez "+Fore.YELLOW+ 'fermer' +Fore.WHITE+" pour fermer le programme ou tapez "+Fore.YELLOW+ 'menu' +Fore.WHITE+" pour revenir à l'accueil: \n --> "))
         self.nr = ''
         if self.number.lower() == "help":
             return self.helping()
         elif self.number.lower() == "fermer":
             exit()
+        elif self.number.lower() == "menu":
+            print("\n"*20)
+            return choix.Choix()
         else:
             for i in range(len(self.number)):
                 if self.number[i] in "0123456789":

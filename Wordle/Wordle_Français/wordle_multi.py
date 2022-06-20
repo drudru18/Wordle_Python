@@ -1,6 +1,6 @@
 #-*- coding: UTF-8 -*-
 
-#import choix
+import choix
 from colorama import Fore, Back, Style
 import codecs
 import random
@@ -39,16 +39,19 @@ class Wordle_multi:
         return self.l
     
     def choose_length(self):
-        self.number = str(input("\n"*100+"Tapez "+Fore.YELLOW+ 'help'+Fore.WHITE +" pour savoir comment jouer, tapez "+Fore.YELLOW+ 'fermer' +Fore.WHITE+" pour fermer le programme ou tapez \n"
-                                +Fore.YELLOW+"passer "+Fore.WHITE+"pour passer ces consignes: \n --> "))
+        self.number = str(input("\n"*100+"Tapez "+Fore.YELLOW+ 'help'+Fore.WHITE +" pour savoir comment jouer, tapez "+Fore.YELLOW+ 'fermer' +Fore.WHITE+" pour fermer le programme, tapez \n"
+                                +Fore.YELLOW+"passer "+Fore.WHITE+"pour passer ces consignes ou tapez "+Fore.YELLOW+ 'menu' +Fore.WHITE+" pour revenir à l'accueil: \n --> "))
         if self.number.lower() == "help":
             return (self.helping())
         elif self.number.lower() == "fermer":
             exit()
         elif self.number.lower() == "passer":
             return (self.actions())
+        elif self.number.lower() == "menu":
+            print("\n"*20)
+            return choix.Choix()
         else:
-            print("Veuillez taper 'help' ou 'fermer' !\n")
+            print("Veuillez taper 'help', 'fermer', 'passer' ou 'menu' !\n")
             return (self.choose_length())
                 
     def actions(self):
