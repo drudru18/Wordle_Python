@@ -4,7 +4,9 @@ from colorama import Fore, Back, Style
 import codecs
 import random
 import time
+import os
 import choix
+os.system('cls')
 
 class Wordle:
     
@@ -123,7 +125,7 @@ class Wordle:
         return Wordle().actions()
     
     def show_answers(self):
-        with open("essays.txt", "r") as file:
+        with open("essays.txt", "r") as file: # content = file.readlines()
             for line in file:
                 answer = ""
                 for i in range(len(line.split()[0])):
@@ -143,8 +145,7 @@ class Wordle:
         file.close()
     
     def check_letters(self):
-        for i in self.liste:
-            if i in self.user_word:
-                if i not in self.pc_word:
-                    self.liste.remove(i)
+        for i in self.user_word.lower():
+            if i not in self.pc_word and i in self.liste:
+                del self.liste[self.liste.index(i)]
         return self.show_answers
