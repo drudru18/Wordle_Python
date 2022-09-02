@@ -4,7 +4,7 @@ The legendary Word game made for the Browser has now been made on Python !
 ---
 
 ### IMPORTANT ! 
-This first version is a version where you can play only using the French language, more languages to come further on !
+This first version is a version where you can play only using the French language, more languages to come !
 
 ---
 
